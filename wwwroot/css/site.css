@@ -28,7 +28,8 @@ a {
   color: #4E9F3D;
 }
 
-.btn-primary {
+.btn-primary, 
+.btn-primary:active {
   color: #fff;
   background-color: #4E9F3D;
   border-color: #37702b;
@@ -36,6 +37,14 @@ a {
 
 .btn-primary:hover {
   background-color: #37702b;
+  border-color: #37702b;
+}
+
+.btn-primary:active:focus,
+.btn-primary:focus {
+  background-color: #4E9F3D;
+  border-color: #37702b;
+  box-shadow: 0 0 0 0.25rem rgba(49, 253, 66, 0.5);
 }
 
 .text-primary {
