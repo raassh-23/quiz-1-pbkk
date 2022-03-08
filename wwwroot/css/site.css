@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+
 html {
   font-size: 14px;
+  position: relative;
+  min-height: 100%;
 }
 
 @media (min-width: 768px) {
@@ -8,11 +12,25 @@ html {
   }
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+body {
+  font-family: 'Lato', sans-serif !important;
+  margin-bottom: 60px;
 }
 
-body {
-  margin-bottom: 60px;
+a {
+  color: #4E9F3D;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #4E9F3D;
+  border-color: #37702b;
+}
+
+.btn-primary:hover {
+  background-color: #37702b;
+}
+
+.text-primary {
+  color: #1E5128 !important;
 }
