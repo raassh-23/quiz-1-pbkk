@@ -11,7 +11,7 @@
     @await RenderSectionAsync("Styles", required: false)
 </head>
 
-<body>
+<body class="d-flex flex-column">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3">
             <div class="container-fluid">
@@ -43,8 +43,8 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div class="container d-flex flex-fill">
+        <main role="main" class="flex-fill pb-3">
             @RenderBody()
         </main>
     </div>

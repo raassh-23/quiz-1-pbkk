@@ -2,7 +2,17 @@
     ViewData["Title"] = "Homepage";
 }
 
-<div class="text-center">
-    <h1 class="display-4 text-primary">@ViewData["Title"]</h1>
-    <p>Ini adalah halaman @ViewData["Title"]</p>
+<div class="d-flex h-100 justify-content-center align-items-center">
+    <div class="row col-sm-10 flex-fill">
+        <div class="col-md-8 my-auto">
+            <h1 class="text-primary">Lorem ipsum dolor sit amet</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis fugiat consequuntur magnam sint officia et
+                atque ipsam? Dicta neque eveniet, assumenda mollitia molestiae quasi ipsam deserunt autem culpa, maiores
+                amet.</p>
+            <a class="btn btn-primary" asp-area="" asp-controller="q1" asp-action="product">Check Our Products</a>
+        </div>
+        <div class="col-md-4">
+            <img src="https://picsum.photos/800" class="img-fluid" alt="">
+        </div>
+    </div>
 </div>
