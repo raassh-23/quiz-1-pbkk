@@ -54,3 +54,7 @@ a {
 .text-white {
   color: whitesmoke !important;
 }
+
+hr {
+  border-top: 1px solid rgba(55, 112, 43, 0.5) !important;
+}

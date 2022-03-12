@@ -1,34 +1,85 @@
 @{
     ViewData["Title"] = "Profile";
+    String[][] teamData = new String[][] {
+        new String[] { "Rosa Swalow", "Founder", "~/img/team/1.jpg" },
+        new String[] { "Owen Attwood", "Botanist", "~/img/team/2.jpg" },
+        new String[] { "Serina Irwin", "Botanist", "~/img/team/3.jpg" },
+        new String[] { "Logan Bourke", "Salesperson", "~/img/team/4.jpg" },
+        new String[] { "Jennifer Linton", "Salesperson", "~/img/team/5.jpg" },
+        new String[] { "Mathilda Bell", "Salesperson", "~/img/team/6.jpg" },
+        new String[] { "Lindsey Fowler", "Salesperson", "~/img/team/7.jpg" },
+        new String[] { "Edwin Thomas", "Marketing", "~/img/team/8.jpg" },
+        new String[] { "Leatrace Devine", "Marketing", "~/img/team/9.jpg" },
+        new String[] { "Ferdinand Jacobs", "Website Developer", "~/img/team/10.jpg" }
+    };
+
+    int rowCount = teamData.Length/4 + 1;
+}
+
+@section Styles {
+<style>
+    .social-link {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        border-radius: 50%;
+        transition: all 0.3s;
+        font-size: 0.9rem;
+    }
+
+    .social-link:hover, .social-link:focus {
+        background: #ddd;
+        text-decoration: none;
+        color: #555;
+    }
+</style>
 }
 
 <div class="h-100 d-flex flex-column justify-content-center align-items-center">
     <h1 class="text-center text-primary mt-2">About Our Team</h1>
     <div class="row col-sm-10 mt-1 mb-2 gx-3">
         <div class="col-md-5">
-            <img src="https://picsum.photos/1200/800" class="my-3 img-fluid" alt="">
+            <img src="/img/team.jpeg" class="my-3 img-fluid" alt="">
         </div>
         <div class="col-md-7 my-auto">
-            <h2 class="text-primary ">Lorem ipsum dolor sit amet</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis fugiat consequuntur magnam sint officia
-                    et
-                    atque ipsam? Dicta neque eveniet, assumenda mollitia molestiae quasi ipsam deserunt autem culpa,
-                    maiores
-                    amet.</p>
+            <p>
+                GardenBlooms was founded by only one person, who used to do everything in the company.
+                But now, we have a team of professionals working for us, including botanist, salesperson, marketing, and
+                more.
+                And with our team, we are eager to help you and your garden.
+            </p>
         </div>
     </div>
-
+    <hr class="w-100" />
     <div class="row col-sm-10 mt-1 mb-2 gx-3">
-                <div class="col-md-7 my-auto">
-            <h2 class="text-primary ">Lorem ipsum dolor sit amet</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis fugiat consequuntur magnam sint officia
-                    et
-                    atque ipsam? Dicta neque eveniet, assumenda mollitia molestiae quasi ipsam deserunt autem culpa,
-                    maiores
-                    amet.</p>
-        </div>
-        <div class="col-md-5">
-            <img src="https://picsum.photos/1200/800" class="my-3 img-fluid" alt="">
-        </div>
+        <h2 class="text-primary text-center mb-3">Meet our team</h2>
+        @for (var i = 0; i < rowCount; i++)
+        {
+            <div class="row text-center">
+                @{
+                    int rowItems = (i + 1) * 4 < teamData.Length ? 4 : teamData.Length % 4;
+                }
+                @for (var j = 0; j < rowItems; j++)
+                {
+                    <div class="col-xl-3 col-sm-6 mb-3">
+                        <div class="bg-white rounded shadow-sm py-5 px-4"><img
+                                src="@Url.Content(@teamData[i*4+j][2])" alt="" width="100"
+                                class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                            <h5 class="text-primary mb-0">@teamData[i*4+j][0]</h5><span class="small text-uppercase text-muted">@teamData[i*4+j][1]</span>
+                            <ul class="social mb-0 list-inline mt-3">
+                                <li class="list-inline-item"><a href="#" class="social-link"><i class="bi bi-facebook"></i></a></li>
+                                <li class="list-inline-item"><a href="#" class="social-link"><i class="bi bi-twitter"></i></a></li>
+                                <li class="list-inline-item"><a href="#" class="social-link"><i class="bi bi-instagram"></i></a></li>
+                                <li class="list-inline-item"><a href="#" class="social-link"><i class="bi bi-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
     </div>
 </div>
