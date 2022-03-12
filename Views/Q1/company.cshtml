@@ -1,34 +1,46 @@
 @{
     ViewData["Title"] = "Company";
+    String[][] hoursData = new String[][] {
+        new String[] { "Monday", "10:00 AM", "08:00 PM" },
+        new String[] { "Tuesday", "10:00 AM", "08:00 PM" },
+        new String[] { "Wednesday", "10:00 AM", "08:00 PM" },
+        new String[] { "Thursday", "10:00 AM", "08:00 PM" },
+        new String[] { "Friday", "10:00 AM", "08:00 PM" },
+        new String[] { "Saturday", "10:00 AM", "04:00 PM" },
+    };
 }
 
 <div class="h-100 d-flex flex-column justify-content-center align-items-center">
     <h1 class="text-center text-primary mt-2">About Our Company</h1>
-    <div class="row col-sm-10 mt-1 mb-2 gx-3">
-        <div class="col-md-5">
-            <img src="https://picsum.photos/1200/800" class="my-3 img-fluid" alt="">
-        </div>
+    <div class="row col-sm-10 mt-1 mb-2 gx-4">
         <div class="col-md-7 my-auto">
-            <h2 class="text-primary ">Lorem ipsum dolor sit amet</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis fugiat consequuntur magnam sint officia
-                    et
-                    atque ipsam? Dicta neque eveniet, assumenda mollitia molestiae quasi ipsam deserunt autem culpa,
-                    maiores
-                    amet.</p>
+            <p>
+                GardenBlooms was founded in 2019 from our founder home.
+                We used to only sell flowers online,
+                but now we also sell other gardening items from our shop.
+                We also provide consultation services for our customers about their garden.
+            </p>
+            <em>Disclaimer: this is only a fake company landing page, made for framework programming assignment</em> 
+        </div>
+        <div class="col-md-5">
+            <img src="~/img/gardenShop.jpg" class="my-3 img-fluid" alt="">
         </div>
     </div>
-
+    <hr class="w-100" />
     <div class="row col-sm-10 mt-1 mb-2 gx-3">
-                <div class="col-md-7 my-auto">
-            <h2 class="text-primary ">Lorem ipsum dolor sit amet</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis fugiat consequuntur magnam sint officia
-                    et
-                    atque ipsam? Dicta neque eveniet, assumenda mollitia molestiae quasi ipsam deserunt autem culpa,
-                    maiores
-                    amet.</p>
-        </div>
-        <div class="col-md-5">
-            <img src="https://picsum.photos/1200/800" class="my-3 img-fluid" alt="">
-        </div>
+        <h2 class="text-primary text-center">Opening Hours</h1>
+            <div class="col-md-5 mx-auto mt-2">
+                <table class="table table-striped">
+                    <tbody>
+                        @foreach (var hour in hoursData)
+                        {
+                            <tr>
+                                <th class="text-primary" scope="row">@hour[0]</th>
+                                <td style="text-align: right;">@hour[1] to @hour[2]</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
     </div>
 </div>
