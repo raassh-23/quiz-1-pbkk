@@ -50,3 +50,7 @@ a {
 .text-primary {
   color: #1E5128 !important;
 }
+
+.text-white {
+  color: whitesmoke !important;
+}
