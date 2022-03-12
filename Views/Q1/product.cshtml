@@ -1,8 +1,180 @@
 @{
     ViewData["Title"] = "Products";
+
+    @* all products data are scraped from https://www.gardenstoreonline.co.uk/ *@
+    String[][] productsData = new String[][] {
+        new String[] { 
+            "Dahlia Decorative Mixed",
+            "Seed",
+            "$6.99",
+            "~/img/products/flower-1.jpg" 
+        },
+        new String[] { 
+            "Convallaria Majalis",
+            "Seed",
+            "$6.99",
+            "~/img/products/flower-2.jpg" 
+        },
+        new String[] { 
+            "Begonia Fimbriata Yellow",
+            "Seed",
+            "$6.99",
+            "~/img/products/flower-3.jpg"  
+        },
+        new String[] { 
+            "Sansevieria Laurentii",
+            "Plant",
+            "$6.99",
+            "~/img/products/plant-1.jpg"  
+        },
+        new String[] { 
+            "Calathea Makoyana",
+            "Plant",
+            "$12.99",
+            "~/img/products/plant-2.jpg"  
+        },
+        new String[] { 
+            "Dypsis Lutescens",
+            "Plant",
+            "$14.99",
+            "~/img/products/plant-3.jpg"  
+        },
+        new String[] { 
+            "Houseplant Potting Mix",
+            "Compost",
+            "3.49",
+            "~/img/products/compost-1.jpg"  
+        },
+        new String[] { 
+            "Gro-Sure Vermiculite",
+            "Compost",
+            "$9.99",
+            "~/img/products/compost-2.jpg"  
+        },
+        new String[] { 
+            "Carbon Steel Trowel",
+            "Tool",
+            "$6.99",
+            "~/img/products/tool-1.jpg"  
+        },
+        new String[] { 
+            "Professional Bypass Pruner",
+            "Tool",
+            "$14.99",
+            "~/img/products/tool-2.jpg"  
+        },
+        new String[] { 
+            "Stainless Steel Border Fork",
+            "Tool",
+            "$37.99",
+            "~/img/products/tool-3.jpg"  
+        },
+        new String[] { 
+            "Carbon Steel Edging Knife",
+            "Tool",
+            "$22.99",
+            "~/img/products/tool-4.jpg"  
+        },
+        new String[] { 
+            "Mystic Mog Solar",
+            "Decoration",
+            "$12.99",
+            "~/img/products/decor-1.jpg"  
+        },
+        new String[] { 
+            "Smart Garden Mystic Mog Solar",
+            "Decoration",
+            "$24.99",
+            "~/img/products/decor-2.jpg"  
+        },
+        new String[] { 
+            "Aries Windspinner",
+            "Decoration",
+            "$29.99",
+            "~/img/products/decor-3.jpg"  
+        },
+        new String[] { 
+            "Prune & Seal",
+            "Chemical",
+            "$10.99",
+            "~/img/products/chem-1.jpg"  
+        },
+        new String[] { 
+            "Moss Killer",
+            "Chemical",
+            "$6.99",
+            "~/img/products/chem-2.jpg"  
+        },
+        new String[] { 
+            "Fungus Clear Ultra",
+            "Chemical",
+            "$10.99",
+            "~/img/products/chem-3.jpg"  
+        },
+        new String[] { 
+            "Lifestyle Garden Nassau Bistro Set",
+            "Furniture",
+            "$299.99",
+            "~/img/products/furni-1.jpg"  
+        },
+        new String[] { 
+            "Winawood Sandwick 2 Seat Bench",
+            "Furniture",
+            "$349.99",
+            "~/img/products/furni-2.jpg"  
+        },
+    };
+
+    int rowCount = productsData.Length/4 + 1;
 }
 
-<div class="text-center">
-    <h1 class="display-4">@ViewData["Title"]</h1>
-    <p>Ini adalah halaman @ViewData["Title"]</p>
+@section Styles {
+<style>
+    .like {
+        font-size: 1.5rem;
+
+    }
+</style>
+}
+
+<div class="h-100 d-flex flex-column justify-content-center align-items-center">
+    <h1 class="text-center text-primary mt-2">Our Products</h1>
+    <p>GardenBlooms provides all kinds of gardening items, ranging from seeds, live plant, to tools, and decoration.</p>
+    <hr class="w-100" />
+    <h2 class="text-center text-primary my-2">Best Sellers</h2>
+    <div class="col-lg-10 mt-3 mb-2">
+        @for (var i = 0; i < rowCount; i++)
+        {
+            <div class="row gx-4">
+                @{
+                    int rowItems = (i + 1) * 4 <= productsData.Length ? 4 : productsData.Length % 4;
+                }
+                @for (var j = 0; j < rowItems; j++)
+                {
+                    <div class="col-md-3 mb-3">
+                        <div class="card shadow-sm h-100">
+                            <img class="card-img"
+                                src="@Url.Content(@productsData[i*4+j][3])"
+                                alt="@productsData[i*4+j][0]">
+                            <div class="card-img-overlay d-flex justify-content-end">
+                                <a href="#" class="card-link text-danger like">
+                                    <i class="bi bi-heart"></i>
+                                </a>
+                            </div>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h4 class="card-title">@productsData[i*4+j][0]</h4>
+                                <h6 class="card-subtitle text-muted">@productsData[i*4+j][1]</h6>
+                                <div class="buy d-flex justify-content-between align-items-center">
+                                    <div class="price text-primary">
+                                        <h5 class="mt-4">@productsData[i*4+j][2]</h5>
+                                    </div>
+                                    <a href="#" class="btn btn-primary mt-3"><i class="bi bi-cart"></i> Buy</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
 </div>

@@ -1,5 +1,7 @@
 @{
     ViewData["Title"] = "Profile";
+
+    @* All the name and photo besides mine are auto generated *@
     String[][] teamData = new String[][] {
         new String[] { "Muh. Nur Abdurrauf", "Founder", "~/img/team/1.png" },
         new String[] { "Owen Attwood", "Botanist", "~/img/team/2.jpg" },
@@ -50,7 +52,7 @@
                 GardenBlooms was founded by only one person, who used to do everything in the company.
                 But now, we have a team of professionals working for us, including botanist, salesperson, marketing, and
                 more.
-                And with our team, we are eager to help you and your garden.
+                With our team, we are eager to help you and your garden.
             </p>
         </div>
     </div>
@@ -61,7 +63,7 @@
         {
             <div class="row text-center">
                 @{
-                    int rowItems = (i + 1) * 4 < teamData.Length ? 4 : teamData.Length % 4;
+                    int rowItems = (i + 1) * 4 <= teamData.Length ? 4 : teamData.Length % 4;
                 }
                 @for (var j = 0; j < rowItems; j++)
                 {
